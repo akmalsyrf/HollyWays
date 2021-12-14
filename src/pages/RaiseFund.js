@@ -30,7 +30,7 @@ export default function RaiseFund() {
               <Card.Body className="d-flex justify-content-between">
                 <Card.Link className="text-decoration-none text-dark fw-bold">Rp 25.000.000</Card.Link>
                 <Card.Link className="btn btn-danger" href="#">
-                  Donate
+                  View Fund
                 </Card.Link>
               </Card.Body>
             </Card>
@@ -49,7 +49,7 @@ export default function RaiseFund() {
               <Card.Body className="d-flex justify-content-between">
                 <Card.Link className="text-decoration-none text-dark fw-bold">Rp 25.000.000</Card.Link>
                 <Card.Link className="btn btn-danger" href="#">
-                  Donate
+                  View Fund
                 </Card.Link>
               </Card.Body>
             </Card>
@@ -68,7 +68,7 @@ export default function RaiseFund() {
               <Card.Body className="d-flex justify-content-between">
                 <Card.Link className="text-decoration-none text-dark fw-bold">Rp 25.000.000</Card.Link>
                 <Card.Link className="btn btn-danger" href="#">
-                  Donate
+                  View Fund
                 </Card.Link>
               </Card.Body>
             </Card>
