@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, ListGroup, ListGroupItem} from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import imgLandingPage1 from "../assets/img/landingpage 1.png"
 import imgLandingPage2 from "../assets/img/landingpage 2.png"
 import donate1 from "../assets/img/donate1.png"

@@ -14,7 +14,7 @@ function Login(props) {
     if (isLogin) {
       return (
         <>
-          <NavDropdown align="end" title={<img src={Ava} width="40px" alt="" />} id="dropdown-menu-align-end">
+          <NavDropdown align="end" title={<img src={Ava} width="50px" height="50px" alt="" className="rounded-circle"/>} id="dropdown-menu-align-end">
               <img src={Polygon} alt="ico" className="position-absolute" style={{top:"-20px", left:"80%", width:"30px"}}/>
             <NavDropdown.Item className="fw-bold my-2" href="#action3"><img src={ProfileIcon} className="me-2" alt="ico"/> Profile</NavDropdown.Item>
             <NavDropdown.Item className="fw-bold my-2" href="#action4"><img src={FundIcon} className="me-2" alt="ico"/> Raise Fund</NavDropdown.Item>
