@@ -44,7 +44,7 @@ export default function LandingPage() {
         {/* card content */}
         <div class="px-5 py-5 bg-light">
           <h3 className="text-center mb-5 text-danger fw-bold">Donate Now</h3>
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-center container">
             {/* card */}
             <div class="col-3">
               <Card style={{ width: "18rem" }}>
