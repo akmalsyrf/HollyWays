@@ -14,13 +14,13 @@ import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 
 export default function NavBar() {
-  //login
+  //login and logout
   const [state, dispatch] = useContext(UserContext);
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch({ type: "LOGIN_SUCCESS", payload: "oke" });
+    dispatch({ type: "LOGIN_SUCCESS", payload: "this is login" });
   };
-  const handleLogout = () => dispatch({ type: "LOGOUT", payload: "yes" });
+  const handleLogout = () => dispatch({ type: "LOGOUT", payload: "this is logout" });
 
   // modal register state
   const [showRegister, setShowRegister] = useState(false);

@@ -19,10 +19,10 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route exact path="/detail-donate/:id" component={DetailDonate} />
         <PrivateRoute exact path="/profile" component={Profile} />
         <PrivateRoute exact path="/raise-fund" component={RaiseFund} />
-        <Route exact path="/detail-donate/:id" component={DetailDonate} />
-        <Route exact path="/make-fund" component={MakeFund} />
+        <PrivateRoute exact path="/make-fund" component={MakeFund} />
         <Route path="*" component={NotFound} />
       </Switch>
     </Router>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Card, ProgressBar } from "react-bootstrap";
 import imgLandingPage1 from "../assets/img/landingpage 1.png";
 import imgLandingPage2 from "../assets/img/landingpage 2.png";
@@ -7,6 +8,10 @@ import donate2 from "../assets/img/donate2.png";
 import donate3 from "../assets/img/donate3.png";
 
 export default function LandingPage() {
+  const history = useHistory();
+  const handleToDetailDonate = () => {
+    history.push("/detail-donate/1");
+  };
   return (
     <>
       <div style={{ overflowX: "hidden" }}>
@@ -57,7 +62,7 @@ export default function LandingPage() {
                 </div>
                 <Card.Body className="d-flex justify-content-between">
                   <Card.Link className="text-decoration-none text-dark fw-bold">Rp 25.000.000</Card.Link>
-                  <Card.Link className="btn btn-danger" href="/detail-donate/1">
+                  <Card.Link className="btn btn-danger" onClick={handleToDetailDonate}>
                     Donate
                   </Card.Link>
                 </Card.Body>

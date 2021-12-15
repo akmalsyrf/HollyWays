@@ -8,7 +8,7 @@ import ApproveDonate from "../assets/img/approvedonate.png";
 export default function DetailDonateModal(props) {
   //push to profile
   const history = useHistory();
-  const handlePushToProfile = () => {
+  const handleToProfile = () => {
     history.push("/profile");
   };
 
@@ -19,7 +19,7 @@ export default function DetailDonateModal(props) {
   return (
     <>
       <Modal show={props.showDonateModal} onHide={props.handleCloseDonateModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-        <Form className="py-4 px-2" onSubmit={handlePushToProfile}>
+        <Form className="py-4 px-2" onSubmit={handleToProfile}>
           <Modal.Body>
             <Form.Control type="text" placeholder="Nominal Donation" />
             <div className="d-flex justify-content-start my-3">
@@ -50,7 +50,7 @@ function ApproveModal(props) {
         <Modal.Title>Paijo</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form.Control type="text" placeholder="Nominal Donation" value="45.000.000" />
+        <Form.Control type="text" placeholder="Nominal Donation" value="45.000.000" onChange="" />
         <div className="show-proof text-center my-2">
           <img src={ApproveDonate} alt="img" />
         </div>
