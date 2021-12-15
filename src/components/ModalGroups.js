@@ -1,60 +1,65 @@
-import React from 'react'
+import React, { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
-function LoginModal(props) {
-    return (
-        <>
-          <Modal show={props.showLogin} onHide={props.handleCloseLogin}>
-            <Modal.Header closeButton>
-              <Modal.Title className="fw-bold">Login</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Control type="email" placeholder="Email" />
-                </Form.Group>
-    
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                  <Button variant="danger" className="col-12" onClick={props.handleCloseLogin}>
-                    Submit
-                  </Button>
-                  <p className="mt-3 text-center text-secondary">Don't have an account ? Click <a onClick={props.handleShowRegister} role="button" className="fw-bold text-dark text-decoration-none">Here</a></p>
-              </Form>
-            </Modal.Body>
-          </Modal>
-        </>
-      );
+import DetailDonateImg from "../assets/img/detaildonate.png";
+import ApproveDonate from "../assets/img/approvedonate.png";
+
+export default function DetailDonateModal(props) {
+  //push to profile
+  const history = useHistory();
+  const handlePushToProfile = () => {
+    history.push("/profile");
+  };
+
+  //approve modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  return (
+    <>
+      <Modal show={props.showDonateModal} onHide={props.handleCloseDonateModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Form className="py-4 px-2" onSubmit={handlePushToProfile}>
+          <Modal.Body>
+            <Form.Control type="text" placeholder="Nominal Donation" />
+            <div className="d-flex justify-content-start my-3">
+              <Button variant="danger" onClick={handleShow}>
+                Attach Payment
+                <img src={DetailDonateImg} alt="img" className="px-2" />
+              </Button>
+              <p className="text-secondary ms-3">*transfers can be made to holyways accounts</p>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button type="submit" variant="danger" className="col-12" onClick={props.handleCloseDonateModal}>
+              Donate
+            </Button>
+          </Modal.Footer>
+        </Form>
+
+        <ApproveModal show={show} handleClose={handleClose} />
+      </Modal>
+    </>
+  );
 }
 
-function RegisterModal(props) {
-    return (
-        <>
-          <Modal show={props.showRegister} onHide={props.handleCloseRegister}>
-            <Modal.Header closeButton>
-              <Modal.Title className="fw-bold">Register</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Control type="email" placeholder="Email" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasictext">
-                  <Form.Control type="text" placeholder="Full Name" />
-                </Form.Group>
-                  <Button variant="danger" className="col-12" onClick={props.handleCloseRegister}>
-                    Submit
-                  </Button>
-                  <p className="mt-3 text-center text-secondary">Already have an account ? Click <a onClick={props.handleShowRegister} role="button" className="fw-bold text-dark text-decoration-none">Here</a></p>
-              </Form>
-            </Modal.Body>
-          </Modal>
-        </>
-      );
+function ApproveModal(props) {
+  return (
+    <Modal show={props.show} onHide={props.handleClose} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>Paijo</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form.Control type="text" placeholder="Nominal Donation" value="45.000.000" />
+        <div className="show-proof text-center my-2">
+          <img src={ApproveDonate} alt="img" />
+        </div>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="danger" className="col-12" onClick={props.handleClose}>
+          Save Changes
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
 }
-
-export {LoginModal, RegisterModal}
