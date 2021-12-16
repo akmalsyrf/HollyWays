@@ -14,13 +14,15 @@ import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 
 export default function NavBar() {
-  //login and logout
+  //handling login and logout
   const [state, dispatch] = useContext(UserContext);
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch({ type: "LOGIN_SUCCESS", payload: "this is login" });
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    dispatch({ type: "LOGIN_SUCCESS", payload: { email, password } });
   };
-  const handleLogout = () => dispatch({ type: "LOGOUT", payload: "this is logout" });
+  const handleLogout = () => dispatch({ type: "LOGOUT", payload: {} });
 
   // modal register state
   const [showRegister, setShowRegister] = useState(false);
@@ -32,6 +34,26 @@ export default function NavBar() {
   const handleCloseLogin = () => setShowLogin(false);
   const handleShowLogin = () => setShowLogin(true);
 
+  const conditionalNavbarProps = {
+    handleShowLogin,
+    handleShowRegister,
+    isLogin: state.isLogin,
+    handleLogout,
+  };
+
+  const loginModalProps = {
+    showLogin,
+    handleCloseLogin,
+    handleShowRegister,
+    handleLogin,
+  };
+
+  const registerModalProps = {
+    showRegister,
+    handleCloseRegister,
+    handleShowLogin,
+  };
+
   return (
     <>
       <Navbar bg="danger" expand="lg" sticky="top">
@@ -42,14 +64,14 @@ export default function NavBar() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll></Nav>
-            <ConditionalNavbar handleShowLogin={handleShowLogin} handleShowRegister={handleShowRegister} isLogin={state.isLogin} handleLogout={handleLogout} />
+            <ConditionalNavbar {...conditionalNavbarProps} />
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
       {/* modal register and login */}
-      <LoginModal showLogin={showLogin} handleCloseLogin={handleCloseLogin} handleShowRegister={handleShowRegister} handleLogin={handleLogin} />
-      <RegisterModal showRegister={showRegister} handleCloseRegister={handleCloseRegister} handleShowLogin={handleShowLogin} />
+      <LoginModal {...loginModalProps} />
+      <RegisterModal {...registerModalProps} />
     </>
   );
 }

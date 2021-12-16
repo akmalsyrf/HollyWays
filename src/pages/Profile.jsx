@@ -4,7 +4,8 @@ import ProfilePic from "../assets/img/ava.png";
 export default function Profile() {
   return (
     <>
-      <div className="container-fluid py-5 px-5 d-flex bg-light justify-content-center">
+      <div className="container-fluid py-5 px-5 d-flex bg-light justify-content-center" style={{ height: "100%" }}>
+        {/* left side */}
         <div className="col-6">
           <h3 className="mb-4 fw-bold">My Profile</h3>
           <div className="d-flex justify-content-start">
@@ -27,6 +28,7 @@ export default function Profile() {
             </div>
           </div>
         </div>
+        {/* right side */}
         <div className="col-4">
           <h3 className="me-5 fw-bold mb-4">History Donation</h3>
           <div className="px-3 py-4" style={{ backgroundColor: "white", width: "580px" }}>

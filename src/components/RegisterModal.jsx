@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Button, Modal } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 export default function RegisterModal(props) {
   return (
@@ -24,7 +25,7 @@ export default function RegisterModal(props) {
             </Button>
             <p className="mt-3 text-center text-secondary">
               Already have an account ? Click{" "}
-              <a onClick={props.handleShowRegister} role="button" className="fw-bold text-dark text-decoration-none">
+              <a onClick={props.handleShowLogin} role="button" className="fw-bold text-dark text-decoration-none">
                 Here
               </a>
             </p>
@@ -34,3 +35,6 @@ export default function RegisterModal(props) {
     </>
   );
 }
+RegisterModal.propTypes = {
+  showRegister: PropTypes.bool.isRequired,
+};

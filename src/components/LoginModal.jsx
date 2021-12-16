@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Button, Modal } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 export default function LoginModal(props) {
   return (
@@ -11,11 +12,11 @@ export default function LoginModal(props) {
         <Modal.Body>
           <Form onSubmit={props.handleLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="email" placeholder="Email" />
+              <Form.Control type="email" placeholder="Email" id="email" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password" id="password" />
             </Form.Group>
             <Button variant="danger" type="submit" className="col-12" onClick={props.handleCloseLogin}>
               Submit
@@ -32,3 +33,7 @@ export default function LoginModal(props) {
     </>
   );
 }
+
+LoginModal.propTypes = {
+  showLogin: PropTypes.bool.isRequired,
+};
