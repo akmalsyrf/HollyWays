@@ -1,23 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import ApproveModal from "./ApproveModal";
+import AttachPayment from "../../assets/img/attachpayment.png";
 
-import AttachPayment from "../assets/img/attachpayment.png";
-
-export default function DetailDonateModal(props) {
+export default function DonateModal(props) {
   //push to profile
   const history = useHistory();
   const handleToProfile = () => {
     history.push("/profile");
   };
-
-  //show approve modal
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <>
       <Modal show={props.showDonateModal} onHide={props.handleCloseDonateModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -25,7 +18,7 @@ export default function DetailDonateModal(props) {
           <Modal.Body>
             <Form.Control type="text" placeholder="Nominal Donation" />
             <div className="d-flex justify-content-start my-3">
-              <Button variant="danger" onClick={handleShow}>
+              <Button variant="danger">
                 Attach Payment
                 <img src={AttachPayment} alt="img" className="px-2" />
               </Button>
@@ -38,13 +31,11 @@ export default function DetailDonateModal(props) {
             </Button>
           </Modal.Footer>
         </Form>
-
-        <ApproveModal show={show} handleClose={handleClose} />
       </Modal>
     </>
   );
 }
 
-DetailDonateModal.propTypes = {
+DonateModal.propTypes = {
   showDonateModal: PropTypes.bool.isRequired,
 };

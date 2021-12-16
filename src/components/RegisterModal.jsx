@@ -25,9 +25,9 @@ export default function RegisterModal(props) {
             </Button>
             <p className="mt-3 text-center text-secondary">
               Already have an account ? Click{" "}
-              <a onClick={props.handleShowLogin} role="button" className="fw-bold text-dark text-decoration-none">
+              <span onClick={props.handleShowLogin} role="button" className="fw-bold text-dark text-decoration-none">
                 Here
-              </a>
+              </span>
             </p>
           </Form>
         </Modal.Body>
@@ -37,4 +37,6 @@ export default function RegisterModal(props) {
 }
 RegisterModal.propTypes = {
   showRegister: PropTypes.bool.isRequired,
+  handleCloseRegister: PropTypes.func,
+  handleShowLogin: PropTypes.func,
 };

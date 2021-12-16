@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import ProfilePic from "../assets/img/ava.png";
+import { UserContext } from "../context/UserContext";
 
 export default function Profile() {
+  const [state] = useContext(UserContext);
+  console.log(state);
   return (
     <>
-      <div className="container-fluid py-5 px-5 d-flex bg-light justify-content-center" style={{ height: "100%" }}>
-        {/* left side */}
+      <div className="container-fluid vh-100 py-5 d-flex bg-light justify-content-center" style={{ height: "100%" }}>
+        {/* user info */}
         <div className="col-6">
           <h3 className="mb-4 fw-bold">My Profile</h3>
           <div className="d-flex justify-content-start">
@@ -15,11 +18,11 @@ export default function Profile() {
             <div className="col-8">
               <div className="info">
                 <h5 className="text-danger fw-bold">Full Name</h5>
-                <p className="text-secondary">Paijo</p>
+                <p className="text-secondary">Username</p>
               </div>
               <div className="info">
                 <h5 className="text-danger fw-bold">Email</h5>
-                <p className="text-secondary">paijogans@mail.com</p>
+                <p className="text-secondary">{state.user.email}</p>
               </div>
               <div className="info">
                 <h5 className="text-danger fw-bold">Phone</h5>
@@ -28,7 +31,7 @@ export default function Profile() {
             </div>
           </div>
         </div>
-        {/* right side */}
+        {/* history */}
         <div className="col-4">
           <h3 className="me-5 fw-bold mb-4">History Donation</h3>
           <div className="px-3 py-4" style={{ backgroundColor: "white", width: "580px" }}>

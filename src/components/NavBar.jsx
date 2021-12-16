@@ -20,9 +20,15 @@ export default function NavBar() {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    dispatch({ type: "LOGIN_SUCCESS", payload: { email, password } });
+    const user = { email, password };
+    function setToken() {
+      localStorage.setItem("token", "Authenticated");
+    }
+    dispatch({ type: "LOGIN_SUCCESS", payload: { user, token: setToken() } });
   };
-  const handleLogout = () => dispatch({ type: "LOGOUT", payload: {} });
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT", payload: {} });
+  };
 
   // modal register state
   const [showRegister, setShowRegister] = useState(false);
@@ -34,6 +40,7 @@ export default function NavBar() {
   const handleCloseLogin = () => setShowLogin(false);
   const handleShowLogin = () => setShowLogin(true);
 
+  //props
   const conditionalNavbarProps = {
     handleShowLogin,
     handleShowRegister,

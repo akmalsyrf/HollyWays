@@ -23,9 +23,9 @@ export default function LoginModal(props) {
             </Button>
             <p className="mt-3 text-center text-secondary">
               Don't have an account ? Click{" "}
-              <a onClick={props.handleShowRegister} role="button" className="fw-bold text-dark text-decoration-none">
+              <span onClick={props.handleShowRegister} role="button" className="fw-bold text-dark text-decoration-none">
                 Here
-              </a>
+              </span>
             </p>
           </Form>
         </Modal.Body>
@@ -36,4 +36,6 @@ export default function LoginModal(props) {
 
 LoginModal.propTypes = {
   showLogin: PropTypes.bool.isRequired,
+  handleCloseLogin: PropTypes.func,
+  handleShowRegister: PropTypes.func,
 };

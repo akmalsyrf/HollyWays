@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Card, ProgressBar } from "react-bootstrap";
 import imgLandingPage1 from "../assets/img/landingpage 1.png";
 import imgLandingPage2 from "../assets/img/landingpage 2.png";
 
@@ -23,7 +22,7 @@ export default function LandingPage() {
         {/* primary content */}
         <div style={{ width: "100%", height: "603px" }} className="bg-danger">
           <div style={{ marginLeft: "150px" }} className="col-5 pt-5">
-            <h2 className="text-light mb-5">While you are still standing, try to reach out to the people who are falling.</h2>
+            <h2 className="text-light mb-4">While you are still standing, try to reach out to the people who are falling.</h2>
             <p className="text-light">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
               type specimen book.{" "}
