@@ -12,15 +12,15 @@ export default function RegisterModal(props) {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="email" placeholder="Email" />
+              <input type="email" className="form-control" placeholder="Email" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Control type="password" placeholder="Password" />
+              <input type="password" className="form-control" placeholder="Password" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasictext">
-              <Form.Control type="text" placeholder="Full Name" />
+              <input type="text" className="form-control" placeholder="Full Name" />
             </Form.Group>
-            <Button variant="danger" className="col-12" onClick={props.handleCloseRegister}>
+            <Button type="submit" variant="danger" className="form-control col-12" onClick={props.handleCloseRegister}>
               Submit
             </Button>
             <p className="mt-3 text-center text-secondary">
@@ -37,6 +37,6 @@ export default function RegisterModal(props) {
 }
 RegisterModal.propTypes = {
   showRegister: PropTypes.bool.isRequired,
-  handleCloseRegister: PropTypes.func,
+  // handleCloseRegister: PropTypes.func,
   handleShowLogin: PropTypes.func,
 };

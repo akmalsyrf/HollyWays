@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+//components
 import NavBar from "./components/NavBar";
 
 // pages
@@ -11,20 +12,22 @@ import RaiseFund from "./pages/RaiseFund";
 import DetailDonate from "./pages/DetailDonate";
 import MakeFund from "./pages/MakeFund";
 import NotFound from "./pages/NotFound";
-import PrivateRoute from "./components/PrivateRoute";
 import ViewFund from "./pages/ViewFund";
 
-import { UserContext } from "./context/UserContext";
+//context
+import PrivateRoute from "./context/PrivateRoute";
 
 function App() {
-  const [state, dispatch] = useContext(UserContext);
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    console.log(token);
-    if (String(token) == "Authenticated") {
-      dispatch({ type: "AUTHENTICATED" });
-    }
-  });
+  // const [state, dispatch] = useContext(UserContext);
+  // const token = window.sessionStorage.getItem("token");
+  // useEffect(() => {
+  //   console.log(token);
+  //   if (String(token) === "Authenticated") {
+  //     dispatch({ type: "AUTHENTICATED" });
+  //   } else {
+  //     return null;
+  //   }
+  // });
   return (
     <Router>
       <NavBar />

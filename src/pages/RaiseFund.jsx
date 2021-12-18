@@ -39,14 +39,12 @@ export default function RaiseFund() {
                 };
                 //take raise fund base on current user login
                 if (Number(donation.id) === Number(user.raiseFundId)) {
-                  return (
-                    <>
-                      <CardDonate {...props} />
-                    </>
-                  );
+                  return <CardDonate {...props} />;
                 }
+                return null;
               });
             }
+            return null;
           })}
         </div>
       </div>

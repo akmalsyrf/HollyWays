@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, ProgressBar } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 export default function CardDonate(props) {
   return (
@@ -23,3 +24,11 @@ export default function CardDonate(props) {
     </div>
   );
 }
+
+CardDonate.propTypes = {
+  i: PropTypes.number.isRequired,
+  donationPicture: PropTypes.string,
+  donationName: PropTypes.string.isRequired,
+  progress: PropTypes.number,
+  buttonName: PropTypes.string,
+};

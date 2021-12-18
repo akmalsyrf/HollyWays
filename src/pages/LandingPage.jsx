@@ -53,7 +53,7 @@ export default function LandingPage() {
               const total = Rupiah(donation.total);
               const progress = (Number(donation.total) / Number(donation.target)) * 100;
               const props = {
-                i,
+                i: Number(i),
                 donationPicture: donation.picture,
                 donationName: donation.name,
                 progress,

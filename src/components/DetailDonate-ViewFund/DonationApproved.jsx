@@ -27,9 +27,11 @@ export default function DonationApproved(props) {
                         </>
                       );
                     }
+                    return null;
                   });
                 });
               }
+              return null;
             })}
           </>
         ) : (
@@ -50,9 +52,11 @@ export default function DonationApproved(props) {
                         </>
                       );
                     }
+                    return null;
                   });
                 });
               }
+              return null;
             })}
           </>
         )}

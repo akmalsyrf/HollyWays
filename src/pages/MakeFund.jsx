@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import Donations from "../data/donationData";
 
 export default function MakeFund() {
   const history = useHistory();
-  useEffect(() => {
-    console.log(Donations);
-  });
   console.log(Donations);
   const handleSubmit = (e) => {
     e.preventDefault();

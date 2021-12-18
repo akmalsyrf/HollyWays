@@ -1,17 +1,15 @@
 import React, { useState, useContext } from "react";
-import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 import Icon from "../assets/img/Icon.png";
-import Ava from "../assets/img/ava.png";
-import ProfileIcon from "../assets/img/profileicon.png";
-import FundIcon from "../assets/img/fundicon.png";
-import LogoutIcon from "../assets/img/logouticon.png";
-import Polygon from "../assets/img/Polygon.png";
 
+import ConditionalNavbar from "../context/ConditionalNavbar";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
+
+import Users from "../data/userData";
 
 export default function NavBar() {
   //handling login and logout
@@ -20,11 +18,20 @@ export default function NavBar() {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const user = { email, password };
-    function setToken() {
-      localStorage.setItem("token", "Authenticated");
+    if (email !== "" || password !== "") {
+      Users.map((user) => {
+        if (email === user.email) {
+          const userSession = { id: user.id, name: user.name, email: user.email, password: user.password };
+          // function setToken() {
+          //   sessionStorage.setItem("token", "Authenticated");
+          // }
+          dispatch({ type: "LOGIN_SUCCESS", payload: { userSession } });
+        }
+        return null;
+      });
+    } else {
+      return null;
     }
-    dispatch({ type: "LOGIN_SUCCESS", payload: { user, token: setToken() } });
   };
   const handleLogout = () => {
     dispatch({ type: "LOGOUT", payload: {} });
@@ -80,38 +87,5 @@ export default function NavBar() {
       <LoginModal {...loginModalProps} />
       <RegisterModal {...registerModalProps} />
     </>
-  );
-}
-
-function ConditionalNavbar(props) {
-  return (
-    <div>
-      {props.isLogin ? (
-        <>
-          <NavDropdown align="end" title={<img src={Ava} width="50px" height="50px" alt="" className="rounded-circle" />} id="dropdown-menu-align-end">
-            <img src={Polygon} alt="ico" className="position-absolute" style={{ top: "-20px", left: "80%", width: "30px" }} />
-            <Link className="fw-bold my-2 dropdown-item" to="/profile">
-              <img src={ProfileIcon} className="me-2" alt="ico" /> Profile
-            </Link>
-            <Link className="fw-bold my-2 dropdown-item" to="/raise-fund">
-              <img src={FundIcon} className="me-2" alt="ico" /> Raise Fund
-            </Link>
-            <NavDropdown.Divider />
-            <Link className="fw-bold my-2 dropdown-item" to="/" onClick={props.handleLogout}>
-              <img src={LogoutIcon} className="me-2" alt="ico" /> Logout
-            </Link>
-          </NavDropdown>
-        </>
-      ) : (
-        <>
-          <Button variant="danger" onClick={props.handleShowLogin} className="me-2 px-3">
-            Login
-          </Button>
-          <Button variant="light" onClick={props.handleShowRegister} className="me-2 text-danger">
-            Register
-          </Button>
-        </>
-      )}
-    </div>
   );
 }

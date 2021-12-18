@@ -56,6 +56,7 @@ export default function DonationInfo(props) {
             </div>
           );
         }
+        return null;
       })}
     </>
   );

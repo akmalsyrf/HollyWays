@@ -1,57 +1,45 @@
-import profileImg from "../assets/img/ava.png";
-
 const Users = [
   {
     id: 1,
     name: "Andi",
-    email: "",
+    email: "andi@mail.com",
     password: "",
-    profileImg,
     raiseFundId: [1],
-    donationId: [1],
   },
   {
     id: 2,
     name: "Jamal",
-    email: "",
+    email: "jamal@mail.com",
     password: "",
-    profileImg,
     raiseFundId: [2],
-    donationId: [1],
   },
   {
     id: 3,
     name: "Udin",
-    email: "",
+    email: "udin@mail.com",
     password: "",
-    profileImg,
     raiseFundId: [3],
-    donationId: [1],
   },
   {
     id: 4,
     name: "Zain",
-    email: "",
+    email: "zain@mail.com",
     password: "",
-    profileImg,
     raiseFundId: [],
-    donationId: [1],
   },
   {
     id: 5,
     name: "Fadhil",
-    email: "",
+    email: "fadhil@mail.com",
     password: "",
     raiseFundId: [],
-    donationId: [1],
   },
   {
     id: 6,
     name: "Radif",
-    email: "",
+    email: "radif@mail.com",
     password: "",
     raiseFundId: [],
-    donationId: [1],
   },
 ];
 

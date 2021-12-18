@@ -12,11 +12,11 @@ export default function LoginModal(props) {
         <Modal.Body>
           <Form onSubmit={props.handleLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="email" placeholder="Email" id="email" />
+              <input type="email" className="form-control" placeholder="Email" id="email" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Control type="password" placeholder="Password" id="password" />
+              <input type="password" className="form-control" placeholder="Password" id="password" />
             </Form.Group>
             <Button variant="danger" type="submit" className="col-12" onClick={props.handleCloseLogin}>
               Submit

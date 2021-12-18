@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
 export const UserContext = createContext();
 const initialState = { isLogin: false, user: {} };
@@ -7,11 +7,12 @@ const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case "LOGIN_SUCCESS":
-      return { isLogin: true, user: payload, token: payload.token };
+      console.log(payload);
+      return { isLogin: true, user: payload.userSession, token: payload.token };
     case "AUTHENTICATED":
-      return { isLogin: true, user: payload?.user, token: payload?.token };
+      return { isLogin: true, user: payload?.userSession, token: payload?.token };
     case "LOGOUT":
-      return { isLogin: false, user: {}, token: localStorage.clear() };
+      return { isLogin: false, user: {}, token: sessionStorage.clear() };
     default:
       throw new Error();
   }
