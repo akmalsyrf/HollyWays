@@ -8,7 +8,7 @@ export default function Profile() {
   const [state] = useContext(UserContext);
   return (
     <>
-      <div className="container-fluid vh-100 py-5 d-flex bg-light justify-content-center" style={{ height: "100%" }}>
+      <div className="container-fluid vh-100 py-5 d-flex bg-light justify-content-center">
         {/* user info */}
         <div className="col-6">
           <h3 className="mb-4 fw-bold">My Profile</h3>

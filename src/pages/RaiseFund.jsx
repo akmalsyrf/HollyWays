@@ -13,7 +13,7 @@ export default function RaiseFund() {
   };
   return (
     <>
-      <div className="container-fluid py-5 px-5 bg-light">
+      <div className="container-fluid vh-100 py-5 px-5 bg-light">
         <div className="d-flex justify-content-between">
           <h2 className="mb-2 ms-5 fw-bold">My Raise Fund</h2>
           <Link to="/make-fund" className="btn btn-danger pt-2 fw-bold me-1">

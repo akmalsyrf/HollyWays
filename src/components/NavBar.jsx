@@ -5,34 +5,13 @@ import { UserContext } from "../context/UserContext";
 
 import Icon from "../assets/img/Icon.png";
 
-import ConditionalNavbar from "../context/ConditionalNavbar";
+import ConditionalNavbar from "../context/ConditionalNavbar/ConditionalNavbar";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 
-import Users from "../data/userData";
-
 export default function NavBar() {
-  //handling login and logout
+  //handling logout
   const [state, dispatch] = useContext(UserContext);
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    if (email !== "" || password !== "") {
-      Users.map((user) => {
-        if (email === user.email) {
-          const userSession = { id: user.id, name: user.name, email: user.email, password: user.password };
-          // function setToken() {
-          //   sessionStorage.setItem("token", "Authenticated");
-          // }
-          dispatch({ type: "LOGIN_SUCCESS", payload: { userSession } });
-        }
-        return null;
-      });
-    } else {
-      return null;
-    }
-  };
   const handleLogout = () => {
     dispatch({ type: "LOGOUT", payload: {} });
   };
@@ -59,7 +38,6 @@ export default function NavBar() {
     showLogin,
     handleCloseLogin,
     handleShowRegister,
-    handleLogin,
   };
 
   const registerModalProps = {
@@ -71,7 +49,7 @@ export default function NavBar() {
   return (
     <>
       <Navbar bg="danger" expand="lg" sticky="top">
-        <Container fluid className="text-light">
+        <Container fluid className="text-light mx-5">
           <Link to="/">
             <img src={Icon} alt="ico" />
           </Link>
