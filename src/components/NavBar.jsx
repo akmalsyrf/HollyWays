@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 import Icon from "../assets/img/Icon.png";
+import ConversationIcon from "../assets/img/conversation.png";
 
-import ConditionalNavbar from "../context/ConditionalNavbar/ConditionalNavbar";
+import ConditionalNavbar from "./ConditionalNavbar/ConditionalNavbar";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 
@@ -56,6 +57,13 @@ export default function NavBar() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll></Nav>
+            {state.isLogin ? (
+              <Link to="/chat">
+                <img src={ConversationIcon} alt="ico" className="me-2" style={{ maxHeight: "20px" }} />
+              </Link>
+            ) : (
+              ""
+            )}
             <ConditionalNavbar {...conditionalNavbarProps} />
           </Navbar.Collapse>
         </Container>

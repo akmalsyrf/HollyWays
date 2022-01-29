@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import imgLandingPage1 from "../assets/img/landingpage 1.png";
 import imgLandingPage2 from "../assets/img/landingpage 2.png";
 
-import Donations from "../data/donationData";
-import { Rupiah } from "../data/rupiahFormat";
 import CardDonate from "../components/CardDonate";
 
+import { API } from "../config/api";
+import { Rupiah } from "../data/rupiahFormat";
+
 export default function LandingPage() {
+  document.title = "Hollyways : #1 Fundraising Platform for Online Crowdfunding";
+  const [funds, setFunds] = useState([]);
+  const getFunds = async () => {
+    try {
+      const response = await API.get("/funds");
+      setFunds(response.data.data.funds);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getFunds();
+  }, []);
+
   const history = useHistory();
   const handleToDetailDonate = (id) => {
     history.push(`/detail-donate/${id}`);
@@ -47,19 +62,19 @@ export default function LandingPage() {
 
         {/* card donate */}
         <div id="donate" className="py-5 bg-light">
-          <h1 className="text-center text-danger fw-bold me-5">Donate Now</h1>
-          <div className="d-flex justify-content-start container flex-wrap pe-5">
-            {Donations.map((donation, i) => {
-              const total = Rupiah(donation.total);
-              const progress = (Number(donation.total) / Number(donation.target)) * 100;
+          <h1 className="text-center text-danger fw-bold ms-4">Donate Now</h1>
+          <div className="d-flex justify-content-start container flex-wrap ps-5">
+            {funds.map((fund, i) => {
+              const progress = (Number(fund.donationObtained) / Number(fund.goal)) * 100;
               const props = {
-                i: Number(i),
-                donationPicture: donation.picture,
-                donationName: donation.name,
+                i,
+                donationPicture: fund.thumbnail,
+                donationName: fund.title,
+                donationDescription: fund.description,
                 progress,
-                total,
+                total: Rupiah(fund.donationObtained),
                 handleClickButton: handleToDetailDonate,
-                donationId: donation.id,
+                donationId: fund.id,
                 buttonName: "Donate",
               };
               return (

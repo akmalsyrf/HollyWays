@@ -8,7 +8,7 @@ import ProfileIcon from "../../assets/img/profileicon.png";
 import FundIcon from "../../assets/img/fundicon.png";
 import LogoutIcon from "../../assets/img/logouticon.png";
 
-import "./style.css";
+import "./ConditionalNavbar.css";
 
 export default function ConditionalNavbar(props) {
   return (

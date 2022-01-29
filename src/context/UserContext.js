@@ -6,13 +6,15 @@ const initialState = { isLogin: false, user: {} };
 const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
+    case "USER_SUCCESS":
     case "LOGIN_SUCCESS":
+      localStorage.setItem("token", payload.token);
       console.log(payload);
-      return { isLogin: true, user: payload.userSession, token: payload.token };
-    case "AUTHENTICATED":
-      return { isLogin: true, user: payload?.userSession, token: payload?.token };
+      return { isLogin: true, user: payload };
+    case "AUTH_ERROR":
     case "LOGOUT":
-      return { isLogin: false, user: {}, token: sessionStorage.clear() };
+      localStorage.removeItem("token");
+      return { isLogin: false, user: {} };
     default:
       throw new Error();
   }

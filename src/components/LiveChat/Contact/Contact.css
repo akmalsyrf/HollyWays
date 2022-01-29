@@ -1,0 +1,35 @@
+.img-contact {
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: cover !important;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+}
+.contact img {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.contact ul {
+  list-style-type: none;
+}
+
+.contact:hover {
+  background-color: #e2e1e1;
+  transition: 0.5s;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact:active {
+  background-color: #c7c7c7;
+  transition: 0.3s;
+}
+
+.contact-active {
+  background-color: #c7c7c7;
+  border-radius: 5px;
+}
