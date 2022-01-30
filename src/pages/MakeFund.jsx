@@ -96,7 +96,7 @@ export default function MakeFund() {
             <input type="date" className="form-control" id="deadline" name="deadline" onChange={handleChange} />
           </Form.Group> */}
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <input type="number" className="form-control" placeholder="Goals Donation" name="goal" onChange={handleChange} />
+            <input type="number" className="form-control" placeholder="Goals Donation (Rp.)" name="goal" onChange={handleChange} />
           </Form.Group>
           <Form.Group className="mb-5" controlId="exampleForm.ControlTextarea1">
             <textarea className="form-control" rows={3} placeholder="Description" name="description" onChange={handleChange} style={{ resize: "none" }} />
