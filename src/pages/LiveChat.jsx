@@ -25,7 +25,7 @@ export default function LiveChat() {
   const [state] = useContext(UserContext);
 
   useEffect(() => {
-    socket = io("http://localhost:5000", {
+    socket = io( process.env.SOCKET_SERVER || "https://api-hollyways.herokuapp.com" || "http://localhost:5000", {
       auth: {
         token: localStorage.getItem("token"),
       },
