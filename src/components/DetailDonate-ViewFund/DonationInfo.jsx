@@ -71,6 +71,8 @@ export default function DonationInfo(props) {
   const target = Rupiah(fund.goal);
   const progress = (Number(fund.donationObtained) / Number(fund.goal)) * 100;
 
+  console.log(fund.idUser);
+
   return (
     <>
       <div className="py-5 d-flex" key={fund.id}>
@@ -97,6 +99,7 @@ export default function DonationInfo(props) {
               </p>
             </div>
             <p className="text-secondary mt-3">{fund.description}</p>
+            <p className="text-secondary mt-3">Crowdfunder : {fund.crowdfunder}</p>
           </div>
           {props.isViewFund ? (
             <>
